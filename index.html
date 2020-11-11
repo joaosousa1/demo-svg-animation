@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="animaDomino2.js" ></script>
+    <title>svg</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Roboto;
+        color: #777;
+
+    }
+
+    body {
+        background-color: #1d1d1d;
+    }
+
+    .centro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .meuSvg {
+        width: 100%;
+    }
+
+    .box {
+        margin-top: 20px;
+        border-radius: 10%;
+        width: 25vw;
+        height: 25vw;
+        background-color: #2e2e2e;
+        padding: 20px;
+    }
+
+    section {
+        margin: 0 10vw 10vw;
+    }
+
+    .colorido {
+        background: linear-gradient( to right,#f32170, #ff6b08, #cf23cf, #eedd44);
+
+    }
+
+    .up {
+        /* dar espaço para animação domino */
+        padding-top: 20px;
+    }
+
+    .gradient-text {
+        /* standard gradient background */
+        background: linear-gradient( to right,#f32170, #ff6b08, #cf23cf, #eedd44);
+
+        /* clip hackery */
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+<body>
+
+    <div class="centro">
+        <div class="box">
+            <img style="cursor: pointer" class="meuSvg" src="desenho.svg" onclick="texto_1.anima(1)">
+        </div>
+    </div>
+    <section>
+        <h1 id="titulo" class="gradient-text up">SVG</h1>
+    </section>
+    
+    <section id="primeiro" class="gradient-text up">
+        
+        Utilizando uma div para redimensionar o svg. O svg tem 100% do div que por sua vez tem 30vw "viewport"
+    </section>
+    <section>
+        Com o "box-sizing: border-box" a largura e altura dos elementos inclui as margens, a borda e "padding". Quando
+        acrescento 20px de "padding" na "box" ele "encolhe" a estrela para o tamanho final na "box" ser o mesmo.. 30vw
+    </section>
+
+    <section>
+        A segunda estrela o svg está "embutido" na pagina html.
+    </section>
+
+    <div class="centro">
+        <svg style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="50" viewBox="0 0 80.227 80.227" onclick="texto_2.anima(1)">
+            <path fill="#f32170" d="m60.224 81.318-23.421-15.901-26.161 10.602 7.6362-27.562-18.002-22.021 28.141-1.133 15.036-24.212 9.7559 26.861 27.294 7.057-22.111 17.734z" />
+        </svg>
+    </div>
+</body>
+
+<script>
+
+
+texto_1 = new Domino( "titulo", 1000);
+texto_2 = new Domino( "primeiro", 3000);
+
+
+</script>
+
+</html>
